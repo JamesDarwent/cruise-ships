@@ -1,15 +1,13 @@
-// const starting_port = "Dover"
 
 
-function Ship(port) {
-this.startingPort = port;
-};
-
-Ship.prototype = {
+class Ship{
+    constructor(port) {
+        this.currentPort = port;
+    };
 
     setSail() {
         this.startingPort = 0;
-    },
+    };
 };
 
 
@@ -18,5 +16,4 @@ Ship.prototype = {
 
 
 
-
-module.exports = Ship
+module.exports = Ship;
