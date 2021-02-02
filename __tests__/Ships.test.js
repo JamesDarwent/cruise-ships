@@ -7,15 +7,16 @@ describe("Ship", () => {
     let ship, port;
 
     beforeEach(() => {
+        port = new Port("Dover")
         ship = new Ship(port);
     });
 
     it("returns an object", () => {
-        expect(new Ship()).toBeInstanceOf(Object);
+        expect(ship).toBeInstanceOf(Object);
     });
 
     it("has a starting port", () => {
-        expect(ship.currentPort).toBe(port);
+        expect(ship.startingPort).toBe(port);
     });
 
     it("Allows the ship to set sail", () => {
