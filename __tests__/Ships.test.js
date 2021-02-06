@@ -4,11 +4,12 @@ const Port = require('../src/Port.js');
 
 describe("Ship", () => {
 
-    let ship, port;
+    let ship, dover, helsinki;
 
     beforeEach(() => {
-        port = new Port("Dover")
-        ship = new Ship(port);
+        dover = new Port("Dover")
+        helsinki = new Port("Helsinki")
+        ship = new Ship(dover);
     });
 
     it("returns an object", () => {
@@ -16,14 +17,22 @@ describe("Ship", () => {
     });
 
     it("has a starting port", () => {
-        expect(ship.startingPort).toBe(port);
+        expect(ship.startingPort).toBe(dover);
     });
 
-    it("Allows the ship to set sail", () => {
+    it("can sail to another port", () => {
 
-    ship.setSail();
+        ship.setSail();
 
     expect(ship.startingPort).toBeFalsy();
+    });
+
+    it("can dock at a port", () => {
+
+        ship.setSail();
+        ship.dock(helsinki);
+
+    expect(ship.currentPort).toBe(helsinki);
     });
 });
 
